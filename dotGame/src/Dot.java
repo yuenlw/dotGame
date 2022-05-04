@@ -20,13 +20,13 @@ public class Dot implements Constantes{
 
 
     public void move(){
+        lastPosition[X] = currentPosition[X];
+        lastPosition[Y] = currentPosition[Y];
     
         if(target[X] != currentPosition[X]){
-            lastPosition[X] = currentPosition[X];
             currentPosition[X] += (target[X]-currentPosition[X])/Math.abs(target[X]-currentPosition[X]);
         }
         if(target[Y] != currentPosition[Y]){
-            lastPosition[Y] = currentPosition[Y];
             currentPosition[Y] += (target[Y]-currentPosition[Y])/Math.abs(target[Y]-currentPosition[Y]);
         }
     }
