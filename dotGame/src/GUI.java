@@ -29,12 +29,27 @@ public class GUI implements ActionListener, Constantes{
         ventana.pack();
         ventana.setVisible(true);
 
+        dot = new Dot();
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+        if (e.getActionCommand().equals("next")){
+            //mover a dot y pintar la nueva posición, borrando la vieja
+
+        }
+        else{
+            //cuando se presiona una casilla del tablero
+            //cambiar el target de dot
+            //cambiar los colores
+        }
         
     }
+
+
+    //métodos para llamar a setAsTarget y clear
+
+    //métodos para llamar a setAsDot y clear
 
 }
