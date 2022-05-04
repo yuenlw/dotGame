@@ -8,6 +8,7 @@ public class Mapa implements Constantes{
 
 
     public Mapa(ActionListener listener){
+        tablero = new Casilla[TABLERO_SIZE][TABLERO_SIZE];
         panelTablero = new JPanel();
         panelTablero.setLayout(new GridLayout(TABLERO_SIZE, TABLERO_SIZE));
         for (int i = 0; i < TABLERO_SIZE; i++){
