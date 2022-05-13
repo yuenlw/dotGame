@@ -30,26 +30,29 @@ public class GUI implements ActionListener, Constantes{
         ventana.setVisible(true);
 
         dot = new Dot();
+        moveDot();
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("next")){
-            //mover a dot y pintar la nueva posición, borrando la vieja
+            dot.move();
+            moveDot();
 
         }
         else{
-            //cuando se presiona una casilla del tablero
-            //cambiar el target de dot
-            //cambiar los colores
+            mapa.tablero[dot.target[X]][dot.target[Y]].clearTarget();
+            dot.target = ((Casilla)e.getSource()).getCoords();
+            ((Casilla)e.getSource()).setAsTarget();
+            moveDot();
         }
         
     }
 
-
-    //métodos para llamar a setAsTarget y clear
-
-    //métodos para llamar a setAsDot y clear
+    public void moveDot(){
+        mapa.tablero[dot.lastPosition[X]][dot.lastPosition[Y]].clearDot();
+        mapa.tablero[dot.currentPosition[X]][dot.currentPosition[Y]].setAsDot();
+    }
 
 }
