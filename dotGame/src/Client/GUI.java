@@ -9,6 +9,7 @@ import Common.Casilla;
 import Common.Constantes;
 import Common.Dot;
 import Common.Mapa;
+import Common.Target;
 
 import java.net.*;
 import java.io.*;
@@ -18,6 +19,8 @@ public class GUI implements ActionListener, Constantes{
     JFrame ventana;
     JButton next;
     Mapa mapa;
+    Target target;
+
     Dot dot;
 
     Socket client;
@@ -40,21 +43,21 @@ public class GUI implements ActionListener, Constantes{
         ventana.pack();
         ventana.setVisible(true);
 
-        dot = new Dot();
+        target = new Target();
 
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        mapa.tablero[dot.target.coords[X]][dot.target.coords[Y]].clearTarget();
+        mapa.tablero[target.coords[X]][target.coords[Y]].clearTarget();
         ((Casilla)e.getSource()).setAsTarget();
-        dot.target.coords = ((Casilla)e.getSource()).getCoords();
+        target.coords = ((Casilla)e.getSource()).getCoords();
 
         try {
             client = new Socket("127.0.0.1", 4444);
             output = new ObjectOutputStream(client.getOutputStream());
-            output.writeObject(dot.target);
+            output.writeObject(target);
             output.flush();
             output.close();
             client.close();
