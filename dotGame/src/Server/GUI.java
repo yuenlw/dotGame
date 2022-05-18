@@ -36,25 +36,18 @@ public class GUI implements ActionListener, Constantes{
         ventana.setVisible(true);
 
         dot = new Dot();
+
+        Server server = new Server(dot);
+        Thread hilo = new Thread(server);
+        hilo.start();
+
         moveDot();
         run();
 
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("next")){
-            dot.move();
-            moveDot();
-
-        }
-        else{
-            mapa.tablero[dot.target.coords[X]][dot.target.coords[Y]].clearTarget();
-            dot.target.coords = ((Casilla)e.getSource()).getCoords();
-            ((Casilla)e.getSource()).setAsTarget();
-            moveDot();
-        }
-        
+    public void actionPerformed(ActionEvent e) {  
     }
 
     public void moveDot(){

@@ -22,11 +22,11 @@ public class Dot implements Constantes{
         lastPosition[X] = currentPosition[X];
         lastPosition[Y] = currentPosition[Y];
     
-        if(target[X] != currentPosition[X]){
-            currentPosition[X] += (target[X]-currentPosition[X])/Math.abs(target[X]-currentPosition[X]);
+        if(target.coords[X] != currentPosition[X]){
+            currentPosition[X] += (target.coords[X]-currentPosition[X])/Math.abs(target.coords[X]-currentPosition[X]);
         }
-        if(target[Y] != currentPosition[Y]){
-            currentPosition[Y] += (target[Y]-currentPosition[Y])/Math.abs(target[Y]-currentPosition[Y]);
+        if(target.coords[Y] != currentPosition[Y]){
+            currentPosition[Y] += (target.coords[Y]-currentPosition[Y])/Math.abs(target.coords[Y]-currentPosition[Y]);
         }
     }
 

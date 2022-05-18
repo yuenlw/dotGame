@@ -4,7 +4,7 @@ import java.net.*;
 import java.io.*;
 import Common.*;
 
-public class Server {
+public class Server implements Runnable{
     ServerSocket server;
     Socket client;
     ObjectInputStream input;
