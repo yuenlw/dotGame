@@ -37,6 +37,7 @@ public class GUI implements ActionListener, Constantes{
 
         dot = new Dot();
         moveDot();
+        run();
 
     }
 
@@ -59,6 +60,18 @@ public class GUI implements ActionListener, Constantes{
     public void moveDot(){
         mapa.tablero[dot.lastPosition[X]][dot.lastPosition[Y]].clearDot();
         mapa.tablero[dot.currentPosition[X]][dot.currentPosition[Y]].setAsDot();
+    }
+
+    public void run(){
+        while (true){
+            dot.move();
+            moveDot();
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+        }
     }
 
 }
