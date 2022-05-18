@@ -1,3 +1,4 @@
+package Common;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.event.*;

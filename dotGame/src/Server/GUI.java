@@ -1,8 +1,15 @@
+package Server;
 import java.awt.event.*;
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import Common.Casilla;
+import Common.Constantes;
+import Common.Dot;
+import Common.Mapa;
+import Common.Server;
 
 public class GUI implements ActionListener, Constantes{
 
@@ -10,6 +17,7 @@ public class GUI implements ActionListener, Constantes{
     JButton next;
     Mapa mapa;
     Dot dot;
+    Server server;
     
     public GUI(){
 
@@ -30,7 +38,12 @@ public class GUI implements ActionListener, Constantes{
         ventana.setVisible(true);
 
         dot = new Dot();
-        moveDot();
+
+        server = new Server(dot);
+        Thread serverThread = new Thread(server);
+        serverThread.start();
+
+        run();
 
     }
 
@@ -42,8 +55,8 @@ public class GUI implements ActionListener, Constantes{
 
         }
         else{
-            mapa.tablero[dot.target[X]][dot.target[Y]].clearTarget();
-            dot.target = ((Casilla)e.getSource()).getCoords();
+            mapa.tablero[dot.target.coords[X]][dot.target.coords[Y]].clearTarget();
+            dot.target.coords = ((Casilla)e.getSource()).getCoords();
             ((Casilla)e.getSource()).setAsTarget();
             moveDot();
         }
@@ -53,6 +66,20 @@ public class GUI implements ActionListener, Constantes{
     public void moveDot(){
         mapa.tablero[dot.lastPosition[X]][dot.lastPosition[Y]].clearDot();
         mapa.tablero[dot.currentPosition[X]][dot.currentPosition[Y]].setAsDot();
+    }
+
+    public void run(){
+        while(true){
+            try {
+                dot.move();
+                moveDot();
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+
+        }
+
     }
 
 }

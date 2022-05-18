@@ -1,3 +1,4 @@
+package Common;
 import java.awt.Color;
 
 public interface Constantes {
