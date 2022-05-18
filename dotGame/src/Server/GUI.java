@@ -1,8 +1,14 @@
+package Server;
 import java.awt.event.*;
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import Common.Casilla;
+import Common.Constantes;
+import Common.Dot;
+import Common.Mapa;
 
 public class GUI implements ActionListener, Constantes{
 

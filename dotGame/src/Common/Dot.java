@@ -1,8 +1,9 @@
+package Common;
 public class Dot implements Constantes{
     
-    int[] target;
-    int[] currentPosition;
-    int[] lastPosition;
+    public int[] target;
+    public int[] currentPosition;
+    public int[] lastPosition;
 
     public Dot(){
         currentPosition = new int[2];
