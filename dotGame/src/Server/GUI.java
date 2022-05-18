@@ -49,8 +49,8 @@ public class GUI implements ActionListener, Constantes{
 
         }
         else{
-            mapa.tablero[dot.target[X]][dot.target[Y]].clearTarget();
-            dot.target = ((Casilla)e.getSource()).getCoords();
+            mapa.tablero[dot.target.coords[X]][dot.target.coords[Y]].clearTarget();
+            dot.target.coords = ((Casilla)e.getSource()).getCoords();
             ((Casilla)e.getSource()).setAsTarget();
             moveDot();
         }

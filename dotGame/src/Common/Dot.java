@@ -1,7 +1,7 @@
 package Common;
 public class Dot implements Constantes{
     
-    public int[] target;
+    public Target target;
     public int[] currentPosition;
     public int[] lastPosition;
 
@@ -14,9 +14,7 @@ public class Dot implements Constantes{
         lastPosition[X] = 0;
         lastPosition[Y] = 0;
 
-        target = new int[2];
-        target[X] = 0;
-        target[Y] = 0;
+        target = new Target();
     }
 
 
